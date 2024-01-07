@@ -15,6 +15,7 @@ lazy val root = (project in file("."))
     name := "MacrosGenerator"
   )
   .aggregate(macros)
+  .aggregate(caseclassextractor)
   .aggregate(app)
 
 lazy val macros = project
@@ -25,6 +26,19 @@ lazy val macros = project
       "com.chuusai" %% "shapeless" % "2.3.3",
       "org.typelevel" %% "cats-effect" % "2.5.3",
       "org.scala-lang" % "scala-reflect" % "2.13.10",
+      "com.softwaremill.magnolia1_2" %% "magnolia" % "1.1.8",
+      "org.scalatest" %% "scalatest" % "3.2.15" % Test,
+      "org.scalatestplus" %% "mockito-4-11" % "3.2.17.0" % Test
+    )
+  )
+
+lazy val caseclassextractor = project
+  .settings(commonSettings)
+  .settings(
+    name := "caseclassextractor",
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-reflect" % "2.13.10",
+      "com.softwaremill.magnolia1_2" %% "magnolia" % "1.1.8",
       "org.scalatest" %% "scalatest" % "3.2.15" % Test,
       "org.scalatestplus" %% "mockito-4-11" % "3.2.17.0" % Test
     )
@@ -40,3 +54,4 @@ lazy val app = project
     )
   )
   .dependsOn(macros)
+  .dependsOn(caseclassextractor)
