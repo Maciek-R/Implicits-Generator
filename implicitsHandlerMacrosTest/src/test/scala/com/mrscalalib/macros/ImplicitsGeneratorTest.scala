@@ -1,10 +1,11 @@
-package com.macros
+package com.mrscalalib.macros
 
-import com.macros.ImplicitsGeneratorDomainTest._
+import ImplicitsGeneratorDomainTest._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
-import com.macros.EncoderInstances._
-import com.macros.DecoderInstances._
+import EncoderInstances._
+import DecoderInstances._
+import ImplicitsGeneratorDomainTest.{TestWrapper1, TestWrapper2, TestWrapperClass}
 
 object ImplicitsWrapperSupport {
   @generateAllImplicits(

@@ -1,4 +1,4 @@
-package com.macros
+package com.mrscalalib.macros
 
 import cats.data.NonEmptyList
 import org.scalatest.flatspec.AnyFlatSpec

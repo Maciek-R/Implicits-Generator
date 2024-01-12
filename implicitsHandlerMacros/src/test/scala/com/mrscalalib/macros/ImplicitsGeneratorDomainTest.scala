@@ -1,6 +1,6 @@
-package com.macros
+package com.mrscalalib.macros
 
-import com.macros.ImplicitsGeneratorDomainTest.{TestWrapper1, TestWrapper2, TestWrapperClass}
+import ImplicitsGeneratorDomainTest.{TestWrapper1, TestWrapper2, TestWrapperClass}
 
 object ImplicitsGeneratorDomainTest {
   case class TestWrapperClass(t1: TestWrapper1, t2: Option[TestWrapper2])

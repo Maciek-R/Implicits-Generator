@@ -1,4 +1,4 @@
-ThisBuild / version := "0.1.0-SNAPSHOT"
+ThisBuild / version := "1.0.0"
 
 ThisBuild / scalaVersion := "2.13.10"
 
@@ -11,14 +11,13 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings)
-  .settings(name := "MacrosGenerator")
-  .aggregate(macros)
-  .aggregate(app)
+  .settings(name := "ImplicitsOrganizer")
+  .aggregate(implicitsHandlerMacros)
 
-lazy val macros = project
+lazy val implicitsHandlerMacros = project
   .settings(commonSettings)
   .settings(
-    name := "macros",
+    name := "implicits-handler-macros",
     libraryDependencies ++= Seq(
       "com.chuusai" %% "shapeless" % "2.3.3",
       "org.typelevel" %% "cats-effect" % "2.5.3",
@@ -29,22 +28,10 @@ lazy val macros = project
     )
   )
 
-lazy val macrosTest = project
+lazy val implicitsHandlerMacrosTest = project
   .settings(commonSettings)
   .settings(
-    name := "macros-test"
+    name := "implicits-handler-macros-test"
   )
-  .dependsOn(macros)
-  .dependsOn(macros % "test->test")
-
-lazy val app = project
-  .settings(commonSettings)
-  .settings(
-    name := "app",
-    libraryDependencies ++= Seq(
-      "io.circe" %% "circe-core" % "0.14.6",
-      "io.circe" %% "circe-generic" % "0.14.6"
-    )
-  )
-  .dependsOn(macros)
-  .dependsOn(macrosTest)
+  .dependsOn(implicitsHandlerMacros)
+  .dependsOn(implicitsHandlerMacros % "test->test")

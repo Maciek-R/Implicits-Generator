@@ -1,6 +1,5 @@
-package com.macros.generator
+package com.mrscalalib.macros.generator
 
-import com.macros
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

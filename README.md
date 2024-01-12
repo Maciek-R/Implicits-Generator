@@ -1,4 +1,4 @@
-# MacroGenerator
+# ImplicitsOrganizer
 
 This project contains macros which can be helpful with generating additional code.
 

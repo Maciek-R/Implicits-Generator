@@ -1,4 +1,4 @@
-package com.macros
+package com.mrscalalib.macros
 
 import cats.data.NonEmptyList
 
@@ -40,7 +40,7 @@ object CaseClassInspector {
 
     implicit val liftCaseClassDescription = new Liftable[CaseClassDescription] {
       override def apply(ccd: CaseClassDescription): c.universe.Tree =
-        q"_root_.com.macros.CaseClassDescription(${ccd.fieldName}, ${ccd.fieldType})"
+        q"_root_.com.mrscalalib.macros.CaseClassDescription(${ccd.fieldName}, ${ccd.fieldType})"
     }
 
     def isOneOfTypedClasses(tpe: Type): Boolean = {
@@ -61,9 +61,7 @@ object CaseClassInspector {
         if (symbol.isClass && symbol.asClass.isCaseClass) {
           val params =
             symbol.asClass.primaryConstructor.asMethod.paramLists.flatten
-          val innerTypes = params.flatMap(param =>
-            getAllNestedCaseClasses(param.typeSignature)
-          )
+          val innerTypes = params.flatMap(param => getAllNestedCaseClasses(param.typeSignature))
           val typeName = symbol.typeSignature.typeSymbol.name.toString
           CaseClassDescription(decapitalize(typeName), typeName) +: innerTypes
         } else {

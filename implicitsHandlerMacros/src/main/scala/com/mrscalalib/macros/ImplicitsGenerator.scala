@@ -1,4 +1,4 @@
-package com.macros
+package com.mrscalalib.macros
 
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.collection.immutable.{AbstractSeq, LinearSeq}

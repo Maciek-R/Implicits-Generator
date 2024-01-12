@@ -1,4 +1,4 @@
-package com.macros.generator
+package com.mrscalalib.macros.generator
 
 import scala.annotation.{StaticAnnotation, compileTimeOnly}
 import scala.language.experimental.macros
