@@ -29,6 +29,14 @@ lazy val macros = project
     )
   )
 
+lazy val macrosTest = project
+  .settings(commonSettings)
+  .settings(
+    name := "macros-test"
+  )
+  .dependsOn(macros)
+  .dependsOn(macros % "test->test")
+
 lazy val app = project
   .settings(commonSettings)
   .settings(
@@ -39,3 +47,4 @@ lazy val app = project
     )
   )
   .dependsOn(macros)
+  .dependsOn(macrosTest)
