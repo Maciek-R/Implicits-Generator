@@ -12,12 +12,12 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file("."))
   .settings(commonSettings)
   .settings(name := "ImplicitsOrganizer")
-  .aggregate(implicitsHandlerMacros)
+  .aggregate(implicitsOrganizerMacros)
 
-lazy val implicitsHandlerMacros = project
+lazy val implicitsOrganizerMacros = project
   .settings(commonSettings)
   .settings(
-    name := "implicits-handler-macros",
+    name := "implicits-organizer-macros",
     libraryDependencies ++= Seq(
       "com.chuusai" %% "shapeless" % "2.3.3",
       "org.typelevel" %% "cats-effect" % "2.5.3",
@@ -28,10 +28,10 @@ lazy val implicitsHandlerMacros = project
     )
   )
 
-lazy val implicitsHandlerMacrosTest = project
+lazy val implicitsOrganizerMacrosTest = project
   .settings(commonSettings)
   .settings(
-    name := "implicits-handler-macros-test"
+    name := "implicits-organizer-macros-test"
   )
-  .dependsOn(implicitsHandlerMacros)
-  .dependsOn(implicitsHandlerMacros % "test->test")
+  .dependsOn(implicitsOrganizerMacros)
+  .dependsOn(implicitsOrganizerMacros % "test->test")
