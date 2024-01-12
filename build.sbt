@@ -1,17 +1,23 @@
-ThisBuild / version := "1.0.0"
+ThisBuild / version := "1.0.1"
 
 ThisBuild / scalaVersion := "2.13.10"
+
+ThisBuild / organization := "mrlibs"
+
+resolvers +=
+  "Artifactory" at "https://mrlibs.jfrog.io/artifactory/mrlibs-sbt-release/"
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq(
     "-Ymacro-annotations",
     "-Ywarn-macros:after"
-  )
+  ),
+  publishTo := Some("Artifactory Realm" at "https://mrlibs.jfrog.io/artifactory/mrlibs-sbt-release")
 )
 
 lazy val root = (project in file("."))
   .settings(commonSettings)
-  .settings(name := "ImplicitsOrganizer")
+  .settings(name := "ImplicitsOrganizer", publish / skip := true)
   .aggregate(implicitsOrganizerMacros)
 
 lazy val implicitsOrganizerMacros = project
@@ -25,7 +31,8 @@ lazy val implicitsOrganizerMacros = project
       "com.softwaremill.magnolia1_2" %% "magnolia" % "1.1.8",
       "org.scalatest" %% "scalatest" % "3.2.15" % Test,
       "org.scalatestplus" %% "mockito-4-11" % "3.2.17.0" % Test
-    )
+    ),
+    publishConfiguration := publishConfiguration.value.withOverwrite(true)
   )
 
 lazy val implicitsOrganizerMacrosTest = project
