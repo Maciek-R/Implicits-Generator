@@ -1,18 +1,17 @@
-ThisBuild / version := "1.0.1"
-
+ThisBuild / version := "1.0.0"
 ThisBuild / scalaVersion := "2.13.10"
-
 ThisBuild / organization := "mrlibs"
-
-resolvers +=
-  "Artifactory" at "https://mrlibs.jfrog.io/artifactory/mrlibs-sbt-release/"
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq(
     "-Ymacro-annotations",
     "-Ywarn-macros:after"
   ),
-  publishTo := Some("Artifactory Realm" at "https://mrlibs.jfrog.io/artifactory/mrlibs-sbt-release")
+  publishTo := {
+    Some("mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-organizer/")
+  },
+  pomIncludeRepository := { _ => false },
+  publishMavenStyle := true
 )
 
 lazy val root = (project in file("."))
