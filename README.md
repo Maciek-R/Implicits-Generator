@@ -118,6 +118,22 @@ Like in above example:
 # Installation
 ```scala
     libraryDependencies ++= Seq(
-      "mrlibs" %% "implicits-organizer-macros" % "1.0.1"
+      "mrlibs" %% "implicits-organizer-macros" % "1.0.0"
     )
+```
+
+Remember to add resolver to find dependency in Cloudsmith for example like this:
+
+```scala
+resolvers +=
+  "mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-organizer/"
+```
+
+Also to make sure that macro will expand your code, add this to your build.sbt settings:
+
+```scala
+scalacOptions ++= Seq(
+  "-Ymacro-annotations",
+  "-Ywarn-macros:after"
+)
 ```
