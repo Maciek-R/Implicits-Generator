@@ -118,7 +118,7 @@ import TestClass._
 # Installation
 ```scala
 libraryDependencies ++= Seq(
-  "mrlibs" %% "implicits-generator-macros" % "1.0.0"
+  "mrlibs" %% "implicits-generator-macros" % "1.0.1"
 )
 ```
 
