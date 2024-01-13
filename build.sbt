@@ -8,7 +8,7 @@ lazy val commonSettings = Seq(
     "-Ywarn-macros:after"
   ),
   publishTo := {
-    Some("mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-organizer/")
+    Some("mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-generator/")
   },
   pomIncludeRepository := { _ => false },
   publishMavenStyle := true
@@ -16,13 +16,13 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file("."))
   .settings(commonSettings)
-  .settings(name := "ImplicitsOrganizer", publish / skip := true)
-  .aggregate(implicitsOrganizerMacros)
+  .settings(name := "ImplicitsGenerator", publish / skip := true)
+  .aggregate(implicitsGeneratorMacros)
 
-lazy val implicitsOrganizerMacros = project
+lazy val implicitsGeneratorMacros = project
   .settings(commonSettings)
   .settings(
-    name := "implicits-organizer-macros",
+    name := "implicits-generator-macros",
     libraryDependencies ++= Seq(
       "com.chuusai" %% "shapeless" % "2.3.3",
       "org.typelevel" %% "cats-effect" % "2.5.3",
@@ -34,10 +34,10 @@ lazy val implicitsOrganizerMacros = project
     publishConfiguration := publishConfiguration.value.withOverwrite(true)
   )
 
-lazy val implicitsOrganizerMacrosTest = project
+lazy val implicitsGeneratorMacrosTest = project
   .settings(commonSettings)
   .settings(
-    name := "implicits-organizer-macros-test"
+    name := "implicits-generator-macros-test"
   )
-  .dependsOn(implicitsOrganizerMacros)
-  .dependsOn(implicitsOrganizerMacros % "test->test")
+  .dependsOn(implicitsGeneratorMacros)
+  .dependsOn(implicitsGeneratorMacros % "test->test")

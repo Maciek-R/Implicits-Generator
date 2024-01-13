@@ -1,4 +1,4 @@
-# Implicits Organizer
+# Implicits Generator
 
 This project contains macros which can be helpful with handling implicits.
 
@@ -112,21 +112,21 @@ To help compilator find appropriate implicits you will need to explicitly import
 Like in above example:
 
 ```scala
-    import TestClass._
+import TestClass._
 ```
 
 # Installation
 ```scala
-    libraryDependencies ++= Seq(
-      "mrlibs" %% "implicits-organizer-macros" % "1.0.0"
-    )
+libraryDependencies ++= Seq(
+  "mrlibs" %% "implicits-generator-macros" % "1.0.0"
+)
 ```
 
 Remember to add resolver to find dependency in Cloudsmith for example like this:
 
 ```scala
 resolvers +=
-  "mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-organizer/"
+  "mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-generator/"
 ```
 
 Also to make sure that macro will expand your code, add this to your build.sbt settings:

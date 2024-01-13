@@ -6,8 +6,7 @@ import scala.language.experimental.macros
 import scala.reflect.macros.whitebox
 
 @compileTimeOnly("enable macro paradise to expand macro annotations")
-class generateAllImplicits(typeClassNames: Seq[String], imports: Seq[String])
-    extends StaticAnnotation {
+class generateAllImplicits(typeClassNames: Seq[String], imports: Seq[String]) extends StaticAnnotation {
   def macroTransform(annottees: Any*): Any = macro ImplicitsGenerator.impl
 }
 
