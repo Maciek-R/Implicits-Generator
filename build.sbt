@@ -1,22 +1,48 @@
-ThisBuild / version := "1.0.1"
+ThisBuild / version := "1.0.10"
 ThisBuild / scalaVersion := "2.13.10"
-ThisBuild / organization := "mrlibs"
+ThisBuild / organization := "io.github.maciek-r"
+ThisBuild / organizationName := "ruszczyk.maciek"
+
+ThisBuild / scmInfo := Some(
+  ScmInfo(url("https://github.com/Maciek-R/Implicits-Generator"), "scm:git@github.Maciek-R/Implicits-Generator.git")
+)
+
+ThisBuild / developers := List(
+  Developer(
+    id = "Maciek-R",
+    name = "Maciek-R",
+    email = "maciek3633@gmail.com",
+    url = url("https://github.com/Maciek-R")
+  )
+)
+
+ThisBuild / description := "Implicit Generator Macros"
+ThisBuild / licenses := List("The Unlicense" -> new URL("https://unlicense.org/"))
+ThisBuild / homepage := Some(url("https://github.com/Maciek-R/Implicits-Generator"))
+
+ThisBuild / versionScheme := Some("pvp")
+
+ThisBuild / publishTo := {
+  val nexus = "https://s01.oss.sonatype.org/"
+  if (isSnapshot.value) Some("snapshots" at nexus + "content/repositories/snapshots")
+  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
 
 lazy val commonSettings = Seq(
   scalacOptions ++= Seq(
     "-Ymacro-annotations",
     "-Ywarn-macros:after"
-  ),
-  publishTo := {
-    Some("mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-generator/")
-  },
-  pomIncludeRepository := { _ => false },
-  publishMavenStyle := true
+  )
 )
 
 lazy val root = (project in file("."))
   .settings(commonSettings)
-  .settings(name := "ImplicitsGenerator", publish / skip := true)
+  .settings(
+    name := "ImplicitsGenerator",
+    publish / skip := true,
+    pomIncludeRepository := { _ => false },
+    publishMavenStyle := true
+  )
   .aggregate(implicitsGeneratorMacros)
 
 lazy val implicitsGeneratorMacros = project

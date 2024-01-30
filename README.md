@@ -118,15 +118,15 @@ import TestClass._
 # Installation
 ```scala
 libraryDependencies ++= Seq(
-  "mrlibs" %% "implicits-generator-macros" % "1.0.1"
+  "io.github.maciek-r" %% "implicits-generator-macros" % "1.0.10"
 )
 ```
 
-Remember to add resolver to find dependency in Cloudsmith for example like this:
+Remember to add resolver to find dependency in sonatype for example like this:
 
 ```scala
 resolvers +=
-  "mrlibs" at "https://maven.cloudsmith.io/mrlibs/implicits-generator/"
+  "releases" at "https://s01.oss.sonatype.org/content/groups/staging"
 ```
 
 Also to make sure that macro will expand your code, add this to your build.sbt settings:
