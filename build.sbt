@@ -1,4 +1,4 @@
-ThisBuild / version := "1.0.10"
+ThisBuild / version := "1.0.11"
 ThisBuild / scalaVersion := "2.13.10"
 ThisBuild / organization := "io.github.maciek-r"
 ThisBuild / organizationName := "ruszczyk.maciek"
@@ -50,8 +50,8 @@ lazy val implicitsGeneratorMacros = project
   .settings(
     name := "implicits-generator-macros",
     libraryDependencies ++= Seq(
-      "com.chuusai" %% "shapeless" % "2.3.3",
-      "org.typelevel" %% "cats-effect" % "2.5.3",
+      "com.chuusai" %% "shapeless" % "2.3.10",
+      "org.typelevel" %% "cats-effect" % "3.4.8",
       "org.scala-lang" % "scala-reflect" % "2.13.10",
       "com.softwaremill.magnolia1_2" %% "magnolia" % "1.1.8",
       "org.scalatest" %% "scalatest" % "3.2.15" % Test,
