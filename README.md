@@ -118,16 +118,13 @@ import TestClass._
 # Installation
 ```scala
 libraryDependencies ++= Seq(
-  "io.github.maciek-r" %% "implicits-generator-macros" % "1.0.11"
+  "io.github.maciek-r" %% "implicits-generator-macros" % "1.0.12"
 )
 ```
 
-Remember to add resolver to find dependency in sonatype for example like this:
+Newest version of library can be found in maven repository:
 
-```scala
-resolvers +=
-  "releases" at "https://s01.oss.sonatype.org/content/groups/staging"
-```
+https://mvnrepository.com/artifact/io.github.maciek-r/implicits-generator-macros
 
 Also to make sure that macro will expand your code, add this to your build.sbt settings:
 

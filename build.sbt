@@ -1,5 +1,5 @@
-ThisBuild / version := "1.0.11"
-ThisBuild / scalaVersion := "2.13.10"
+ThisBuild / version := "1.0.12"
+ThisBuild / scalaVersion := "2.13.12"
 ThisBuild / organization := "io.github.maciek-r"
 ThisBuild / organizationName := "ruszczyk.maciek"
 
@@ -17,7 +17,7 @@ ThisBuild / developers := List(
 )
 
 ThisBuild / description := "Implicit Generator Macros"
-ThisBuild / licenses := List("The Unlicense" -> new URL("https://unlicense.org/"))
+ThisBuild / licenses := List("MIT" -> new URI("https://opensource.org/license/mit/").toURL)
 ThisBuild / homepage := Some(url("https://github.com/Maciek-R/Implicits-Generator"))
 
 ThisBuild / versionScheme := Some("pvp")
